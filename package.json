@@ -19,10 +19,10 @@
     "import": "./dist/index.mjs",
     "require": "./dist/index.cjs"
   },
+  "types": "./dist/index.d.ts",
   "bin": {
     "sirena": "./dist/cli.mjs"
   },
-  "types": "./dist/index.d.ts",
   "files": [
     "dist/"
   ],
@@ -34,6 +34,9 @@
     "lint:fix": "eslint . --fix && prettier --write src test",
     "test": "vitest run --typecheck --coverage",
     "prepare": "simple-git-hooks"
+  },
+  "dependencies": {
+    "commander": "^14.0.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.19.0",
@@ -53,15 +56,9 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*.{js,ts,cjs,mjs}": [
+    "*.{js,ts,cjs,mjs,json,yaml,md}": [
       "eslint --fix",
       "prettier --write"
-    ],
-    "*.{json,yaml,md}": [
-      "prettier --write"
     ]
-  },
-  "dependencies": {
-    "commander": "^14.0.1"
   }
 }
