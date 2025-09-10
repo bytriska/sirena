@@ -1,0 +1,59 @@
+{
+  "name": "@bytriska/sirena",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.15.1",
+  "description": "Sirena (Simple Release Nodejs App) is a release tool for Node.js projects that automates the process of versioning, changelog generation, and publishing to npm.",
+  "author": "Triska Mahfud K (https://github.com/bytriska)",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/bytriska",
+  "homepage": "https://github.com/bytriska/sirena#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bytriska/sirena.git"
+  },
+  "bugs": "https://github.com/bytriska/sirena/issues",
+  "keywords": [],
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsup-node",
+    "release": "pnpm test && bumpp && pnpm publish --access public",
+    "lint": "eslint . && prettier --check src test",
+    "lint:fix": "eslint . --fix && prettier --write src test",
+    "test": "vitest run --typecheck --coverage",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.19.0",
+    "@types/node": "^24.0.1",
+    "@vitest/coverage-v8": "^3.2.4",
+    "bumpp": "^10.2.3",
+    "eslint": "^9.35.0",
+    "lint-staged": "^16.1.6",
+    "prettier": "3.3.3",
+    "simple-git-hooks": "^2.13.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,yaml,md}": [
+      "prettier --write"
+    ]
+  }
+}
