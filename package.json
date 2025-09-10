@@ -19,11 +19,15 @@
     "import": "./dist/index.mjs",
     "require": "./dist/index.cjs"
   },
+  "bin": {
+    "sirena": "./dist/cli.mjs"
+  },
   "types": "./dist/index.d.ts",
   "files": [
     "dist/"
   ],
   "scripts": {
+    "sirena": "tsx ./src/cli.ts",
     "build": "tsup-node",
     "release": "pnpm test && bumpp && pnpm publish --access public",
     "lint": "eslint . && prettier --check src test",
@@ -41,6 +45,7 @@
     "prettier": "3.3.3",
     "simple-git-hooks": "^2.13.1",
     "tsup": "^8.5.0",
+    "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
@@ -55,5 +60,8 @@
     "*.{json,yaml,md}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "commander": "^14.0.1"
   }
 }
