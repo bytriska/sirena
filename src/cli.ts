@@ -9,7 +9,6 @@ export function cli(cmd: Command) {
   cmd
     .name('sirena')
     .summary('Simple release orchestration tool for Node.js projects.')
-
     .description(
       `Sirena (Simple Release Node.js App) is a lightweight CLI for orchestrating releases in Node.js projects.
 It automates versioning, changelog generation, git commits, tagging, and remote pushes, streamlining your release workflow.`
@@ -21,7 +20,6 @@ It automates versioning, changelog generation, git commits, tagging, and remote 
     .summary(
       'Run the full release workflow including version bump, changelog, commit, tag, and push.'
     )
-
     .description(
       'Run a full release workflow: version bump, changelog update, commit, tag, and push. Highly configurable for mono-repos and partial releases.'
     )
@@ -44,7 +42,6 @@ It automates versioning, changelog generation, git commits, tagging, and remote 
   cmd
     .command('version')
     .summary('Bump project/package version using semver or an exact value.')
-
     .description(
       'Bump the project version. Supports standard semver increments (major, minor, patch) or an exact version. Optionally pre-release.'
     )
@@ -64,7 +61,6 @@ It automates versioning, changelog generation, git commits, tagging, and remote 
   cmd
     .command('changelog')
     .summary('Generate or update changelog from recent git history.')
-
     .description(
       'Generate or update the changelog for recent changes. Can filter by git references and output to a file.'
     )
@@ -80,7 +76,6 @@ It automates versioning, changelog generation, git commits, tagging, and remote 
   cmd
     .command('commit')
     .summary('Create a git commit for release-related changes.')
-
     .description(
       'Create a git commit with changes from the release process. Allows custom commit messages.'
     )
@@ -94,7 +89,6 @@ It automates versioning, changelog generation, git commits, tagging, and remote 
   cmd
     .command('tag')
     .summary('Create and optionally push a git tag for the release.')
-
     .description(
       'Create a git tag for the release. Optionally push the tag to the remote repository.'
     )
@@ -109,7 +103,6 @@ It automates versioning, changelog generation, git commits, tagging, and remote 
   cmd
     .command('push')
     .summary('Push commits and tags to a remote repository.')
-
     .description(
       'Push committed changes and tags to the remote repository. Specify the remote if needed.'
     )
