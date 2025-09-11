@@ -117,7 +117,7 @@ It automates versioning, changelog generation, git commits, tagging, and remote 
   })
 }
 
-export const cmd: Command = new Command()
+const cmd = new Command()
 cli(cmd)
 
 // only parse if program run directly, not imported
